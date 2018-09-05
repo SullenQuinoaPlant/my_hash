@@ -28,7 +28,10 @@ int
 		!(ar = calloc(table_sz, sizeof(int))))
 		return (-1);
 	while ((r = get_next_line(in_fd, &line)) == 1)
-		ar[(*testee_hash)(line)]++;
+	{
+		ar[(*testee_hash)(line) % table_sz]++;
+		free(line);
+	}
 	if (r == 0)
 	{
 		*occupancy_ratio = 1.0;

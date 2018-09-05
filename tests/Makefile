@@ -54,11 +54,11 @@ $(TEST_DIR)/%.test.o\
 $(TEST_DIR)/%.test.c\
 $(LIBS_L)/$(LIBNAME).a
 	$(CC) $(CFLAGS_UTEST)\
-		-I $(LIBS_I) -I $(SRC_DIR)\
+		-I $(LIBS_I) -I $(SRC_DIR) -I $(TEST_DIR)\
 		$<\
 		-L $(LIBS_L)\
 		-lcmocka\
-		-l$(NAME) -lmyfloatingpoint -lft\
+		-l$(NAME) -laux -lgetnextline -lft\
 		-o $@\
 		-Wl,-rpath=$$(readlink -e $(LIBS_L))\
 
