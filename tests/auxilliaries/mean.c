@@ -13,9 +13,10 @@ double
 	{
 		if (*ar)
 		{
-			ret += *ar++
+			ret += *ar;
 			count++;
 		}
+		ar++;
 	}
 	ret /= (double)count;
 	return (ret);

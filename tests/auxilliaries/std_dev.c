@@ -6,16 +6,23 @@ double
 		double mean)
 {
 	int		* const ar_lim = ar + sz;
+	size_t	count;
 	double	ret;
 	double	tmp;
 
 	ret = 0;
+	count = 0;
 	while (ar < ar_lim)
 	{
-		tmp = *ar++ - mean;
-		ret += tmp * tmp;
+		if (*ar)
+		{
+			count++;
+			tmp = *ar - mean;
+			ret += tmp * tmp;
+		}
+		ar++;
 	}
-	ret /= sz;
+	ret /= count;
 	ret = sqrt(ret);
 	return (ret)
 }

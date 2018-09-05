@@ -3,6 +3,9 @@ ifndef ROOT
 	include $(ROOT)/Makefile
 endef
 
+AUX_DIR = $(TEST_DIR)/auxilliaries
+AUX_OBJS := $(wildcard $(AUX_DIR)/*.c)
+
 libaux :
 	ar rcs $@ $(AUX_OBJS)
 	mv $@ $(LIBS_L)

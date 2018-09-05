@@ -5,6 +5,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
+# include <math.h>
 # include "libgetnextline.h"
 
 double
