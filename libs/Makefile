@@ -24,11 +24,10 @@ libft :
 		$@/
 	$(BUILD_LIB)
 
-
-libmyfloatingpoint :
+libgetnextline :
 	git clone \
 		--single-branch \
-		-b release https://github.com/SullenQuinoaPlant/my_floatingpoint.git \
+		-b release https://github.com/SullenQuinoaPlant/get_next_line.git \ 
 		--depth 1 \
 		$@/
 	$(BUILD_LIB)
