@@ -4,12 +4,12 @@
 typedef
 size_t
 	(*t_hasher)(
-		unsigned char *val, size_t len);
+		char *val, size_t len);
 
 typedef
 size_t
 	(*t_strhasher)(
-		unsigned char *str);
+		char *str);
 
 typedef
 struct	s_mean_and_deviation {

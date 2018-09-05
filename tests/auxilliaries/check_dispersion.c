@@ -31,7 +31,7 @@ int
 		ar[(*testee_hash)(line)]++;
 	if (r == 0)
 	{
-		*occupancy_ration = 1.0;
+		*occupancy_ratio = 1.0;
 		*occupancy_ratio -=
 			(double)count_blanks(ar, table_sz) /
 			(double)table_sz;

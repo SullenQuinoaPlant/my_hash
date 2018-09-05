@@ -11,7 +11,7 @@ build-dependencies : $(DEPENDENCIES)
 define BUILD_LIB
 	$(MAKE) -C $@/ 
 	cp $@/$@.a $(LIBS_L)
-	cp $@/$@.h $(LIBS_I)
+	cp $@/$@.h $(LIBS_I) || cp $@/includes/$@.h $(LIBS_I)
 	rm -rf $@
 	touch $(LIB_DIR)/$@
 endef

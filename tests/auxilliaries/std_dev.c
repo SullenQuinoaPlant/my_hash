@@ -24,5 +24,5 @@ double
 	}
 	ret /= count;
 	ret = sqrt(ret);
-	return (ret)
+	return (ret);
 }

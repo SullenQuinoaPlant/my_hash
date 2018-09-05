@@ -8,9 +8,11 @@
 # include <math.h>
 # include "libgetnextline.h"
 
+# include "auxilliaries.h"
+
 double
 	mean(
-		int *ar, size_t sz
+		int *ar, size_t sz);
 
 double
 	std_dev(
