@@ -34,11 +34,11 @@ test_prerequisites : cmocka
 
 .PHONY : cmocka
 cmocka : 
-	@if $(CC) $(CFLAGS_UTEST)\
+	if $(CC) $(CFLAGS_UTEST)\
 		-I $(LIBS_I) -L $(LIBS_L)\
 	 	$(TEST_DIR)/cmocka/check_install.c\
 		-lcmocka -o test.o\
-		-Wl,-rpath=$$(readlink -e $(LIBS_L))\
+		-Wl,-rpath=$(LIBS_L)\
 		&& ./test.o .;\
 	then\
 		echo "cmocka already installed";\
@@ -58,9 +58,9 @@ $(LIBS_L)/$(LIBNAME).a
 		$<\
 		-L $(LIBS_L)\
 		-lcmocka\
-		-l$(NAME) -laux -lgetnextline -lft\
+		-l$(NAME) -laux -lgetnextline -laux -lft\
 		-o $@\
-		-Wl,-rpath=$$(readlink -e $(LIBS_L))\
+		-Wl,-rpath=$(LIBS_L)\
 
 
 %.test.c : $(TEST_DIR)/cmocka/my_macro_overlay.h

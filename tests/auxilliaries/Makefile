@@ -14,7 +14,6 @@ libaux : $(AUX_OBJS)
 
 $(AUX_DIR)/%.o : $(AUX_DIR)/%.c
 	$(CC) $(CFLAGS) $(CFLAGS_UTEST)\
-		-I $(LIBS_I) -L $(LIBS_L)\
+		-I $(LIBS_I)\
 		-c $<\
-		-lgetnextline -lm\
 		-o $@

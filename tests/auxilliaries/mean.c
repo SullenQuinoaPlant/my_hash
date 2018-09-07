@@ -9,6 +9,7 @@ double
 	double	ret;
 
 	ret = 0;
+	count = 0;
 	while (ar < ar_lim)
 	{
 		if (*ar)

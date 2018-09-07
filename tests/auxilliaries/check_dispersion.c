@@ -7,6 +7,7 @@ size_t
 {
 	size_t	count;
 
+	count = 0;
 	while (ar_sz--)
 		if (!*ar++)
 			count++;
