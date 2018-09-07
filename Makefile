@@ -9,7 +9,6 @@ def : targets
 ifndef ROOT
  ROOT := .
 endif
-
 include $(ROOT)/make_vars.mk
 
 
