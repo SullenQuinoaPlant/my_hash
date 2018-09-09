@@ -52,17 +52,20 @@ release :
 		$(RELEASE_DIR)
 	cd $(RELEASE_DIR) && git rm -rf *
 	cp auteur $(RELEASE_DIR)/
-	cp -r $(SRC_DIR)/* $(RELEASE_DIR)/
-#the following must override the existing Makefile
+	mkdir $(RELEASE_DIR)/sources
+	cp -r $(SRC_DIR)/*.c $(RELEASE_DIR)/sources
+	cp $(INC_DIR)/inner.h $(RELEASE_DIR)/sources
 	cp core.mk $(RELEASE_DIR)/Makefile
-	cp make_vars_release.mk $(RELEASE_DIR)/make_vars.mk
+	cp targets.mk $(RELEASE_DIR)/make_vars.mk
+	cat release_vars.mk >> $(RELEASE_DIR)/make_vars.mk
+	mkdir $(RELEASE_DIR)/includes
 	cp $(patsubst %,$(LIBS_I)/%.h,$(DEPENDENCIES)) \
-		$(RELEASE_DIR)/
+		$(RELEASE_DIR)/includes
 	cd $(RELEASE_DIR) && \
 		git add * && \
 		git commit -m make_release && \
 		git push origin release
-	
+
 
 ################
 #MISCELLANEOUS :
