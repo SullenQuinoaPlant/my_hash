@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MYHASH_H
-# define MYHASH_H
+#ifndef LIBMYHASH_H
+# define LIBMYHASH_H
 
 # include <stddef.h>
 
