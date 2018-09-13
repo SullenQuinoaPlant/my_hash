@@ -1,5 +1,5 @@
 void
-	print_res(
+	print_dispersion(
 		double *occ, t_s_mnd *use)
 {
 	printf("occupancy ration is : %f\n", *occ);

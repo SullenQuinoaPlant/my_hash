@@ -1,6 +1,8 @@
 #ifndef AUXILLIARIES_H
 # define AUXILLIARIES_H
 
+# include <stddef.h>
+
 typedef
 size_t
 	(*t_hasher)(
@@ -22,5 +24,9 @@ int
 		char const *in_file, size_t table_sz,
 		t_strhasher *testee_hash,
 		double *occupancy_ratio, t_s_mnd *used_addresses);
+
+void
+	print_dispersion(
+		double *occupancy, t_s_mnd *used_addresses);
 
 #endif
