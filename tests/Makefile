@@ -61,6 +61,7 @@ $(LIBS_L)/$(LIBNAME).a
 		-L $(LIBS_L)\
 		-lcmocka\
 		-l$(NAME) -laux -lgetnextline -laux -lft\
+		-lm\
 		-o $@\
 		-Wl,-rpath=$(LIBS_L)\
 

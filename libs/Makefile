@@ -39,3 +39,4 @@ clean-lib% :
 
 .PHONY : re-lib*
 re-lib% : clean-lib% lib%
+	@:

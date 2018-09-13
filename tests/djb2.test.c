@@ -23,7 +23,7 @@ int	declare_tests_and_run(int all_of, char *these[])
 			&occupancy_ratio,
 			&used_addresses);
 		assert_false(r);
-		print_res(&occupancy_ratio, &used_addresses);
+		print_dispersion(&occupancy_ratio, &used_addresses);
 		assert_true(occupancy_ratio > 0.9);
 	)
 
@@ -40,7 +40,7 @@ int	declare_tests_and_run(int all_of, char *these[])
 			&occupancy_ratio,
 			&used_addresses);
 		assert_false(r);
-		print_res(&occupancy_ratio, &used_addresses);
+		print_dispersion(&occupancy_ratio, &used_addresses);
 		assert_true(occupancy_ratio > 0.9);
 	)
 
@@ -57,7 +57,7 @@ int	declare_tests_and_run(int all_of, char *these[])
 			&occupancy_ratio,
 			&used_addresses);
 		assert_false(r);
-		print_res(&occupancy_ratio, &used_addresses);
+		print_dispersion(&occupancy_ratio, &used_addresses);
 		assert_true(occupancy_ratio > 0.9);
 	)
 
@@ -74,7 +74,7 @@ int	declare_tests_and_run(int all_of, char *these[])
 			&occupancy_ratio,
 			&used_addresses);
 		assert_false(r);
-		print_res(&occupancy_ratio, &used_addresses);
+		print_dispersion(&occupancy_ratio, &used_addresses);
 		assert_true(occupancy_ratio > 0.9);
 	)
 
