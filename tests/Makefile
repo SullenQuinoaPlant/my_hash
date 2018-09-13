@@ -10,6 +10,8 @@ EXECUTION_STAMPS := $(TEST_OBJS:.o=.execution.stamp)
 CFLAGS_UTEST = -fno-builtin -g
 CFLAGS_UTEST += $(CFLAGS_MORE) #$(CFLAGS) were annoying the hell out of me
 
+include $(AUX_DIR)/Makefile
+
 
 
 ############
@@ -71,8 +73,8 @@ $(LIBS_L)/$(LIBNAME).a
 ############
 #RUN TESTS :
 
-.PHONY : tests
-tests : list_tests build_tests run_tests
+.PHONY : tests ut
+tests ut : list_tests build_tests run_tests
 
 .PHONY : run_tests
 run_tests : $(EXECUTION_STAMPS)

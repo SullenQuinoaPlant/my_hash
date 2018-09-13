@@ -12,8 +12,6 @@ define BUILD_LIB
 	$(MAKE) -C $@/ 
 	cp $@/$@.a $(LIBS_L)
 	cp $@/$@.h $(LIBS_I) || cp $@/includes/$@.h $(LIBS_I)
-	rm -rf $@
-	touch $(LIB_DIR)/$@
 endef
 	
 libft :
@@ -33,8 +31,11 @@ libgetnextline :
 	$(BUILD_LIB)
 
 
-.PHONY : clean-*
-clean-% :
-	-rm -r $(LIB_DIR)/$*
-	-rm $(LIBS_I)/$*.h
-	-rm $(LIBS_L)/$*.a
+.PHONY : clean-lib*
+clean-lib% :
+	-rm -rf $(LIB_DIR)/$*lib
+	-rm $(LIBS_I)/lib$*.h
+	-rm $(LIBS_L)/lib$*.a
+
+.PHONY : re-lib*
+re-lib% : clean-lib% lib%

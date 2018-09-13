@@ -1,3 +1,5 @@
+#include "inner.h"
+
 void
 	print_dispersion(
 		double *occ, t_s_mnd *use)

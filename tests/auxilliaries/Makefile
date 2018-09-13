@@ -3,7 +3,6 @@ ifndef ROOT
 	include $(ROOT)/Makefile
 endif
 
-AUX_DIR = $(TEST_DIR)/auxilliaries
 AUX_SRCS := $(wildcard $(AUX_DIR)/*.c)
 AUX_OBJS := $(patsubst %.c,%.o,$(AUX_SRCS))
 
@@ -17,3 +16,9 @@ $(AUX_DIR)/%.o : $(AUX_DIR)/%.c
 		-I $(LIBS_I)\
 		-c $<\
 		-o $@
+
+.PHONY : clean-libaux 
+clean-libaux :
+	-rm $(AUX_OBJS)
+	-rm $(LIBS_I)/libaux.h
+	-rm $(LIBS_L)/libaux.a

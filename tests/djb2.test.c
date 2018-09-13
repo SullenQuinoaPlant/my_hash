@@ -5,9 +5,7 @@
 #include "libaux.h"
 #include "libmyhash.h"
 
-#include "print.c"
-
-#define HASH djb2
+#define HASH h_djb2_str
 
 int	declare_tests_and_run(int all_of, char *these[])
 {

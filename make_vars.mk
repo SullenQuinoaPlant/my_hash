@@ -16,10 +16,11 @@ include $(ROOT)/targets.mk
 DEPENDENCIES = libft
 
 CC := gcc
-CFLAGS_MORE =
+CFLAGS_MORE = -g
 ifndef CFLAGS
 	CFLAGS := -Wall -Wextra -Werror -I $(INC_DIR)
 endif
 CFLAGS += $(CFLAGS_MORE)
 
 TEST_DIR := $(ROOT)/tests
+AUX_DIR := $(TEST_DIR)/auxilliaries

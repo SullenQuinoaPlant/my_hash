@@ -17,7 +17,7 @@ size_t
 int
 	check_dispersion(
 		char const *in_file, size_t table_sz,
-		t_strhasher *testee_hash,
+		t_strhasher testee_hash,
 		double *occupancy_ratio, t_s_mnd *used_addresses)
 {
 	int		in_fd;
