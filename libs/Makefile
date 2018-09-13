@@ -35,6 +35,6 @@ libgetnextline :
 
 .PHONY : clean-*
 clean-% :
-	-rm $(LIB_DIR)/$*
+	-rm -r $(LIB_DIR)/$*
 	-rm $(LIBS_I)/$*.h
 	-rm $(LIBS_L)/$*.a
