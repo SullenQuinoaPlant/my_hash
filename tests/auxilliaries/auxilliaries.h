@@ -23,7 +23,13 @@ int
 	check_dispersion(
 		char const *in_file, size_t table_sz,
 		t_strhasher testee_hash,
-		double *occupancy_ratio, t_s_mnd *used_addresses);
+		double *occupancy_ratio, t_s_mnd *used_addresses,
+		size_t *sample_sz);
+
+double
+	target_occupancy(
+		size_t ar_sz,
+		size_t sample_sz);
 
 void
 	print_dispersion(

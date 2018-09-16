@@ -18,7 +18,8 @@ int
 	check_dispersion(
 		char const *in_file, size_t table_sz,
 		t_strhasher testee_hash,
-		double *occupancy_ratio, t_s_mnd *used_addresses)
+		double *occupancy_ratio, t_s_mnd *used_addresses,
+		size_t *sample_sz)
 {
 	int		in_fd;
 	int		r;
@@ -28,10 +29,12 @@ int
 	if ((in_fd = open(in_file, O_RDONLY)) == -1 ||
 		!(ar = calloc(table_sz, sizeof(int))))
 		return (-1);
+	*sample_sz = 0;
 	while ((r = get_next_line(in_fd, &line)) == 1)
 	{
 		ar[(*testee_hash)(line) % table_sz]++;
 		free(line);
+		sample_sz++;
 	}
 	if (r == 0)
 	{
