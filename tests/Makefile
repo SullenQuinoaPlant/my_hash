@@ -10,7 +10,7 @@ EXECUTION_STAMPS := $(TEST_OBJS:.o=.execution.stamp)
 CFLAGS_UTEST = -fno-builtin -g
 CFLAGS_UTEST += $(CFLAGS_MORE) #$(CFLAGS) were annoying the hell out of me
 
-TEST_DEPENDENCIES : libgetnextline libcmocka
+TEST_DEPENDENCIES : libgetnextline libcmocka_shared
 
 include $(AUX_DIR)/Makefile
 
@@ -26,8 +26,8 @@ tests_all : build_test_dependencies build_tests run_tests
 .PHONY : build_test_dependencies
 build_test_dependencies : $(TEST_DEPENDENCIES)
 
-.PHONY : libcmocka
-libcmocka :
+.PHONY : libcmocka_shared
+libcmocka_shared :
 	$(MAKE) -C $(TEST_DIR)/cmocka/;\
 
 .PHONY : build_tests
@@ -52,13 +52,13 @@ cmocka :
 	if $(CC) $(CFLAGS_UTEST)\
 		-I $(LIBS_I) -L $(LIBS_L)\
 	 	$(TEST_DIR)/cmocka/check_install.c\
-		-lcmocka -o test.o\
+		-lcmocka_shared -o test.o\
 		-Wl,-rpath=$(LIBS_L)\
 		&& ./test.o .;\
 	then\
 		echo "cmocka installed";\
 	else\
-		echo "cmocka not installed"\
+		echo "cmocka not installed";\
 	fi
 	-@rm ./test.o
 
@@ -71,7 +71,7 @@ $(LIBS_L)/$(LIBNAME).a
 		-I $(LIBS_I) -I $(SRC_DIR) -I $(TEST_DIR)\
 		$<\
 		-L $(LIBS_L)\
-		-lcmocka -laux\
+		-lcmocka_shared -laux\
 		-l$(NAME) -lgetnextline -lft\
 		-lm\
 		-o $@\
