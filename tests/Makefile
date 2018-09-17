@@ -59,8 +59,8 @@ $(LIBS_L)/$(LIBNAME).a
 		-I $(LIBS_I) -I $(SRC_DIR) -I $(TEST_DIR)\
 		$<\
 		-L $(LIBS_L)\
-		-lcmocka\
-		-l$(NAME) -laux -lgetnextline -laux -lft\
+		-lcmocka -laux\
+		-l$(NAME) -lgetnextline -lft\
 		-lm\
 		-o $@\
 		-Wl,-rpath=$(LIBS_L)\

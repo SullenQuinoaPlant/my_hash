@@ -29,7 +29,7 @@ size_t
 }
 
 size_t
-	h_djb2_str(
+	h_djb2a_str(
 		char const *str)
 {
 	size_t				hash;
