@@ -10,10 +10,9 @@ EXECUTION_STAMPS := $(TEST_OBJS:.o=.execution.stamp)
 CFLAGS_UTEST = -fno-builtin -g
 CFLAGS_UTEST += $(CFLAGS_MORE) #$(CFLAGS) were annoying the hell out of me
 
-TEST_DEPENDENCIES : libgetnextline libcmocka_shared
-
 include $(AUX_DIR)/Makefile
 
+TEST_DEPENDENCIES = libgetnextline libcmocka_shared libaux
 
 ##########
 #TESTS ALL
