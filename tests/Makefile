@@ -10,12 +10,25 @@ EXECUTION_STAMPS := $(TEST_OBJS:.o=.execution.stamp)
 CFLAGS_UTEST = -fno-builtin -g
 CFLAGS_UTEST += $(CFLAGS_MORE) #$(CFLAGS) were annoying the hell out of me
 
+TEST_DEPENDENCIES : libgetnextline libcmocka
+
 include $(AUX_DIR)/Makefile
 
+
+##########
+#TESTS ALL
+.PHONY : tests_all
+tests_all : build_test_dependencies build_tests run_tests
 
 
 ############
 #BUILD TESTS
+.PHONY : build_test_dependencies
+build_test_dependencies : $(TEST_DEPENDENCIES)
+
+.PHONY : libcmocka
+libcmocka :
+	$(MAKE) -C $(TEST_DIR)/cmocka/;\
 
 .PHONY : build_tests
 build_tests\
@@ -43,10 +56,9 @@ cmocka :
 		-Wl,-rpath=$(LIBS_L)\
 		&& ./test.o .;\
 	then\
-		echo "cmocka already installed";\
+		echo "cmocka installed";\
 	else\
-		echo "installing cmocka";\
-		$(MAKE) -C $(TEST_DIR)/cmocka/;\
+		echo "cmocka not installed"\
 	fi
 	-@rm ./test.o
 
@@ -74,8 +86,8 @@ $(LIBS_L)/$(LIBNAME).a
 ############
 #RUN TESTS :
 
-.PHONY : tests ut
-tests ut : list_tests build_tests run_tests
+.PHONY : tests
+tests : list_tests build_tests run_tests
 
 .PHONY : run_tests
 run_tests : $(EXECUTION_STAMPS)
@@ -91,16 +103,10 @@ run_tests : $(EXECUTION_STAMPS)
 ###############
 #MISCELLANEOUS:
 
-.PHONY : all_unit_tests aut
-all_unit_tests aut : clean-tests ut
-
-
-
 .PHONY : clean-tests
 clean-tests :
 	-rm $(TEST_DIR)/*.o
 	-rm $(TEST_DIR)/*.stamp
-
 
 
 .PHONY : list_tests
