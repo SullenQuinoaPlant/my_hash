@@ -8,10 +8,9 @@ double
 	double const	ratio = 1.0 - 1.0 / (double)ar_sz;
 	double	ret;
 
-	if (!ar_sz)
-		return (0);
-	ret = 1.0;
-	while (--sample_sz)
+	ret = (double)ar_sz;
+	while (sample_sz--)
 		ret *= ratio;
+	ret = ((double)ar_sz - ret) / (double)ar_sz;
 	return (ret);
 }

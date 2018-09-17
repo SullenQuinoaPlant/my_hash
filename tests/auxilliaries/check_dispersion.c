@@ -34,7 +34,7 @@ int
 	{
 		ar[(*testee_hash)(line) % table_sz]++;
 		free(line);
-		*sample_sz +=1;
+		*sample_sz = *sample_sz + 1;
 	}
 	if (r == 0)
 	{
