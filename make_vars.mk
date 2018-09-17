@@ -1,6 +1,6 @@
 TARGETS := \
-	djb2 \
-	djb2a
+	djb2a \
+	djb2
 NAME = myhash
 LIBNAME = lib$(NAME)
 
